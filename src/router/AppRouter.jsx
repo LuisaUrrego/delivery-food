@@ -1,8 +1,14 @@
 import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Register from '../pages/Register'
 
 const AppRouter = () => {
   return (
-    <div>AppRouter</div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Register/>}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
