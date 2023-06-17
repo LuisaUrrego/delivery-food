@@ -1,8 +1,8 @@
 import React from 'react'
 
-const PublicRouter = () => {
+const PublicRouter = ({isAutentication}) => {
   return (
-    <div>PublicRouter</div>
+    <div>{isAutentication? <Navigate to="/home"/>:<Outlet/>}</div>
   )
 }
 

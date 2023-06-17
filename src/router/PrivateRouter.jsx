@@ -1,8 +1,9 @@
 import React from 'react'
+import { Navigate, Outlet } from 'react-router-dom'
 
-const PrivateRouter = () => {
+const PrivateRouter = ({isAutentication}) => {
   return (
-    <div>PrivateRouter</div>
+    <div>{isAutentication?<Outlet/>: <Navigate to="/login"/>}</div>
   )
 }
 
