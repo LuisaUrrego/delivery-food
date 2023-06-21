@@ -1,14 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "../reducers/userReducer";
-const reducer = {
-  user: userReducer,
-};
+import thunk from 'redux-thunk';
+// import userReducer from "../reducers/userReducer";
+import restaurantsReducers from '../reducers/restaurantsReducers';
+// const reducer = {
+//   user: userReducer,
+// };
 const store = configureStore({
-  reducer,
-  devTool: process.env.NODE_ENV !== "production",
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+  reducer: {
+    restaurantsReducers
+  },
+  // devTool: process.env.NODE_ENV !== "production",
+  middleware:[thunk]
 });
+
 export default store;
