@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../Firebase/firebaseConfig";
 import { userTypes } from "../types/userTypes";
 
-export const actionRegisterAsync = ({ email, password, name }) => {
+export const actionRegisterAsync = ({ email, password, name, porfileUser }) => {
   return async (dispatch) => {
     try {
       const { user } = await createUserWithEmailAndPassword(
@@ -11,7 +11,7 @@ export const actionRegisterAsync = ({ email, password, name }) => {
         password
       );
       console.log(user);
-      dispatch(actionRegisterSync({email, password, name}, null))
+      dispatch(actionRegisterSync({email, password, name, porfileUser}, null))
     } catch (error) {
       console.log(error);
       dispatch(actionRegisterSync({}, {code: error.code, message: error.message}))
@@ -28,3 +28,6 @@ const actionRegisterSync = (newUser, error) => {
     },
   };
 };
+
+
+

@@ -15,7 +15,7 @@ export const StyledTextField = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const Formulario = styled.form`
   margin-left: 14px;
   margin-top: 113px;
   position: absolute;
@@ -36,4 +36,10 @@ export const Title = styled.h1`
   margin-top: 39px;
   position: absolute;
   margin-left: 12px;
+`;
+
+export const ContainerIcon = styled.div`
+  margin-top: 39px;
+  margin-top: -41px;
+  margin-left: 268px;
 `;

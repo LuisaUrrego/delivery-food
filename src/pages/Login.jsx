@@ -1,8 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
-import { ContainerTextField, Image, Formulario, ButtonLogin, SpanLogin} from "../components/login/styleLogin";
+import {
+  ContainerTextField,
+  Image,
+  Formulario,
+  ButtonLogin,
+  SpanLogin,
+  ContainerIconPassword
+} from "../components/login/styleLogin";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import IconButton from "@material-ui/core/IconButton";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
+const validationSchema = yup.object({
+  email: yup
+    .string()
+    .email("Debes ingresar tu correo electronico")
+    .required("Este campo es obligatorio"),
+  password: yup.string().required("Este campo es obligatorio"),
+});
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
+
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+
   return (
     <section>
       <figure>
@@ -16,12 +51,33 @@ const Login = () => {
           Login or create an account with your phone number to start ordering
         </SpanLogin>
       </div>
-      <Formulario>
+      <Formulario onSubmit={handleSubmit()}>
         <ContainerTextField>
-          <TextField id="standard-basic" label="Name" variant="standard" type="text"/>
+          <TextField
+            id="standard-basic"
+            label="Email"
+            variant="standard"
+            type="email"
+            {...register("email")}
+            error={!!errors.email}
+            helperText={errors.email?.message}
+          />
         </ContainerTextField>
         <ContainerTextField>
-          <TextField id="standard-basic" label="Password" variant="standard" type="password" />
+          <TextField
+            id="standard-basic"
+            label="Password"
+            variant="standard"
+            type={showPassword ? "text" : "password"}
+            {...register("password")}
+            error={!!errors.password}
+            helperText={errors.password?.message}
+          />
+          <ContainerIconPassword>
+            <IconButton onClick={handleTogglePassword}>
+              {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+            </IconButton>
+          </ContainerIconPassword>
         </ContainerTextField>
         <div>
           <ButtonLogin>Login</ButtonLogin>

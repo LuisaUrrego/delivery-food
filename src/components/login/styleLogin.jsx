@@ -56,3 +56,9 @@ export const Image = styled.img`
   margin-top: 41px;
   position: absolute;
 `;
+
+export const ContainerIconPassword = styled.div`
+  margin-top: 39px;
+  margin-top: -41px;
+  margin-left: 268px;
+`;
