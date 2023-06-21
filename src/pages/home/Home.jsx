@@ -4,6 +4,8 @@ import anoucementTwo from "../../assets/Img (1).png"
 import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { listRestaurants } from '../../redux/actions/restaurantsActions';
+import italyFlag from "../../assets/italia.png"
+import RestaurantCard from './RestaurantCard';
 
 
 
@@ -39,9 +41,25 @@ const Home = () => {
         <img src={anoucementOne} alt="promotion" />
         <img src={anoucementTwo} alt="promotion" />
       </section>
+      <div>
+        <p>Restaurants and cafes</p>
+      </div>
+      <section>
+        <ul>
+          <li><button>All</button></li>
+          <li><button>Gourmet</button></li>
+          <li><button> {/* <img src={italyFlag} alt="italy flag" /> */} Italian food</button></li>
+          <li><button>Mexican food</button></li>
+          <li><button>Fast food</button></li>
+        </ul>
+        </section>
+        
 
       <main>
-
+        {listaDeRestaurantes.map((item) => {
+         return <RestaurantCard key={item.id} listaDeRestaurantes={item}/>
+        })
+        }
       </main>
       
     </div>
