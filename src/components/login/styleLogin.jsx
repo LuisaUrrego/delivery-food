@@ -16,7 +16,7 @@ export const ContainerTextField = styled.div`
 `;
 
 export const Formulario = styled.form`
-  margin-left: 14px;
+margin-left: 34px;
   margin-top: 165px;
   position: absolute;
 `;
@@ -52,7 +52,7 @@ export const SpanLogin = styled.h1`
 `;
 
 export const Image = styled.img`
-  margin-left: 88px;
+margin-left: 134px;
   margin-top: 41px;
   position: absolute;
 `;
@@ -61,4 +61,23 @@ export const ContainerIconPassword = styled.div`
   margin-top: 39px;
   margin-top: -41px;
   margin-left: 268px;
+`;
+
+export const ButtonLoginGoogle = styled.button`
+background-color: yellow;
+margin-top: 12px;
+width: 100%;
+height: 36px;
+border: none;
+outline: none;
+border-radius: 10px;
+position: absolute;
+`;
+
+export const ImageGoogle = styled.img`
+width: 24px;
+    cursor: pointer;
+    
+    position: absolute;
+    margin-left: -201px;
 `;

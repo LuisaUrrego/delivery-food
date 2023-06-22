@@ -7,11 +7,13 @@ import { listRestaurants } from '../../redux/actions/restaurantsActions';
 
 
 
-
 const Home = () => {
   const dispatch = useDispatch();
   const restaurantList = useSelector((store) => store.restaurantsReducers.restaurants);
   const [listaDeRestaurantes, setListaDeRestaurantes] = useState([]);
+
+  const { user } = useSelector((store)=> store.user)
+  console.log(user)
 
   const getRestaurants = () => {    
     dispatch(listRestaurants());
@@ -33,6 +35,7 @@ const Home = () => {
       <div>
         <p>DELIVER TO</p>
         <h4>882 Well St, New-York</h4>
+        <img src={user.porfileUser}/>
       </div>
       </nav>
       <section>

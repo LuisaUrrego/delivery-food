@@ -13,6 +13,8 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
+import fileUpLoad from "../services/fileUpLoad";
+import { actionRegisterAsync } from "../redux/actions/useActions";
 
 const validationSchema = yup.object({
   name: yup.string().required("Por favor ingresar su nombre"),
@@ -29,10 +31,10 @@ const validationSchema = yup.object({
       /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{8,}$/,
       "La contraseña debe tener al menos una letra mayúscula, un número y un carácter especial"
     ),
-    porfileUser: yup
+  porfileUser: yup
     .mixed()
     .test("file", "Por favor ingrese una imagen", (value) =>
-     value.length  > 0 ? true : false
+      value.length > 0 ? true : false
     ),
 });
 const Register = () => {
@@ -47,8 +49,15 @@ const Register = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const handleCreateUsers = (data) => {
+  const handleCreateUsers = async (data) => {
     console.log(data);
+    const porfileUser = await fileUpLoad(data.porfileUser[0]);
+    const newUser = {
+      ...data,
+      porfileUser: porfileUser,
+    };
+    console.log(newUser);
+    dispatch(actionRegisterAsync(newUser))
   };
 
   const handleTogglePassword = () => {
@@ -100,12 +109,14 @@ const Register = () => {
           </ContainerIcon>
         </StyledTextField>
         <Form>
-        <Form.Group controlId="formFile">         
-          <Form.Control  type="file" {...register("porfileUser")} />
-          <Form.Text className="text-muted">{errors.porfileUser?.message}</Form.Text>
-        </Form.Group>
+          <Form.Group controlId="formFile">
+            <Form.Control type="file" {...register("porfileUser")} />
+            <Form.Text className="text-muted">
+              {errors.porfileUser?.message}
+            </Form.Text>
+          </Form.Group>
         </Form>
-        
+
         <div>
           <Button>Sing in</Button>
         </div>
