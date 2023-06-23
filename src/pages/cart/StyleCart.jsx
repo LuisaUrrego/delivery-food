@@ -60,7 +60,29 @@ font-family:'Roboto', sans-serif;
                 width: 90px;
                 border-radius: 10px;
             }
+            h3{
+                font-size: 20px;
+            }
         }
+
     }
   }
+
+  .paymentTotal{
+    position: absolute;
+    bottom: 80px;
+    left: 90px;
+  }
+  .orderButton{
+                border: none;
+                background-color: #E7D521;
+                font-size: 20px;
+                position: absolute;
+                bottom: 5px;
+                width: 280px;
+                height: 40px;
+                left: 30px;
+                border-radius: 15px;
+                
+            }
 `

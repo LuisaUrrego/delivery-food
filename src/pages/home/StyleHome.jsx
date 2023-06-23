@@ -13,7 +13,7 @@ nav{
     .userInfo{
         p{
             margin-bottom: 0;
-            color: yellow;
+            color: #E7D521;;
         }
 
         h4{

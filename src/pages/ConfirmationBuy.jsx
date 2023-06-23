@@ -7,7 +7,7 @@ const ConfirmationBuy = () => {
   const navigate = useNavigate();
   const onSubmit = (e) => {
       e.preventDefault(); 
-      navigate("/home");
+      navigate("/Menu/Home");
     };
   return (
     <form onSubmit={onSubmit}>

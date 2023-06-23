@@ -49,7 +49,7 @@ const PlatoDetails = () => {
 
   const despacharAgregar = () => {
     const nuevoElemento = {platoSelected, contador, detailsRestaurant};
-    dispatch(agregarElemento(nuevoElemento)); // Envía la acción al store de Redux
+    dispatch(agregarElemento(nuevoElemento)); 
     navigate(`/ShoppingCart`)
     console.log(compra);
   };
