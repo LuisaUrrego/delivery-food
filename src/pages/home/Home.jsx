@@ -35,7 +35,7 @@ const Home = () => {
       <div>
         <p>DELIVER TO</p>
         <h4>882 Well St, New-York</h4>
-        <img src={user.porfileUser}/>
+        <img src={user.porfileUser} style={{width: 65}}/>
       </div>
       </nav>
       <section>

@@ -18,3 +18,28 @@ export const listRestaurants = () => {
     }
   };
 };
+
+// export const actionFilterSearchAsync = (searchParam) => {
+//   return async (dispatch) => {
+//     const arrayDishes = collection(firestore, collectionRestaurants);
+//     const querySnapshot = await getDocs(arrayDishes);
+//     const restaurantes = [];
+//     try {
+//       querySnapshot.forEach((doc) => {
+
+//         dishes.push({
+//           id: doc.id,
+//           ...doc.data(),
+//         });
+//       });
+  
+//       const filterDishes = dishes.filter((item) =>
+//         item.name.toLowerCase().includes(searchParam.toLowerCase())
+//       );
+     
+//     } catch (error) {
+//       console.error(error);
+      
+//     }
+//   };
+// };

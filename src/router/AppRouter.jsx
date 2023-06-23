@@ -14,6 +14,7 @@ import UserPorfile from "../pages/UserPorfile";
 import { useDispatch, useSelector } from "react-redux";
 import { actionLoginSync } from "../redux/actions/useActions";
 import SearchPlates from "../pages/SearchPlates";
+import ConfirmationBuy from "../pages/ConfirmationBuy";
 
 const AppRouter = () => {
   const [userLoggedIn, setUserLoggedIn] = useState(null);
@@ -65,6 +66,7 @@ const AppRouter = () => {
             <Route path="home" element={<Home />} />
             <Route path="perfil" element={<UserPorfile />} />
             <Route path="browser" element={<SearchPlates />} />
+            <Route path="confirmationBuy" element={<ConfirmationBuy />} />
           </Route>
         </Route>
       </Routes>
