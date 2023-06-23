@@ -1,16 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import thunk from 'redux-thunk';
 import userReducer from "../reducers/userReducer";
-import restaurantsReducers from '../reducers/restaurantsReducers';
+import { restaurants } from '../reducers/reducers';
+import rootReducer from '../reducers/reducers';
 const reducer = {
   user: userReducer,
-  restaurantsReducers
+  rootReducer,
+  restaurants
 };
 const store = configureStore({
   reducer,
-  // reducer: {
-  //   restaurantsReducers
-  // },
   devTool: process.env.NODE_ENV !== "production",
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
