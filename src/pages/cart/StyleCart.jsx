@@ -53,6 +53,7 @@ font-family:'Roboto', sans-serif;
     div{
         .productList{
             display: flex;
+            margin-bottom: 10px;
             
             align-items: center;
             img{

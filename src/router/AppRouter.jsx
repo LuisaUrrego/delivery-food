@@ -69,7 +69,7 @@ const AppRouter = () => {
         </Route>
           <Route element={<PrivateRouter isAutentication={userLoggedIn} />}>
             
-            <Route path='/Menu' element={<Layout />}>
+            <Route path='/' element={<Layout />}>
             <Route path='/Menu/Home' element={<Home />} />
               <Route path='/Menu/History' element={<History />} />
               <Route path="perfil" element={<UserPorfile />} />

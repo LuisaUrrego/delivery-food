@@ -16,7 +16,7 @@ import { StyleDivHome } from './StyleHome';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const restaurantList = useSelector((state) => state.restaurants);
+  const restaurantList = useSelector((store) => store.restaurants.restaurants);
   const [listaDeRestaurantes, setListaDeRestaurantes] = useState([]);
   const [choosedButton, setChoosedButton] = useState("all");
   const [category, setCategory] = useState([]);
