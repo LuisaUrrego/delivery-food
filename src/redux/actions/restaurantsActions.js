@@ -23,23 +23,33 @@ export const listRestaurants = () => {
 //   return async (dispatch) => {
 //     const arrayDishes = collection(firestore, collectionRestaurants);
 //     const querySnapshot = await getDocs(arrayDishes);
-//     const restaurantes = [];
+//     const restaurants = [];
 //     try {
 //       querySnapshot.forEach((doc) => {
 
-//         dishes.push({
+//         const restaurant = {
 //           id: doc.id,
-//           ...doc.data(),
+//           platos: [],
+//         };
+
+//         doc.data().platos.forEach((dish) => {
+//           if (dish.name.toLowerCase().includes(searchParam.toLowerCase())) {
+//             restaurant.platos.push(dish);
+//           }
 //         });
+
+//         if (restaurant.platos.length > 0) {
+//           restaurants.push(restaurant);
+//         }
+
+//         console.log(doc.id, " => ", restaurant.platos);
 //       });
-  
-//       const filterDishes = dishes.filter((item) =>
-//         item.name.toLowerCase().includes(searchParam.toLowerCase())
-//       );
-     
+
+//       console.log(restaurants);
+//       dispatch(actionFilterRestaurantsSync(restaurants));
 //     } catch (error) {
 //       console.error(error);
-      
+//       dispatch(actionFilterRestaurantsSync([]));
 //     }
 //   };
 // };

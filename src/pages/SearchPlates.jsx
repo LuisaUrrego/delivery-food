@@ -1,7 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import { actionFilterSearchAsync } from "../redux/actions/restaurantsActions"
 import { ContainerIcon, ContainerImage, Input, Details, H3, H5 } from "../components/searchPlates/SearchPlates";
+import { useForm } from "react-hook-form";
 const SearchPlates = () => {
+  // const [searchValue,setSearchValue] = useState()
+  // const { register, handleSubmit, reset } = useForm()
+  // const onSearch = (data) => {
+  //   const searchParam = data.search
+  //   console.log(searchParam);
+  //   dispatch(actionFilterSearchAsync(searchParam));
+  //   // Actualizar el estado de las últimas consultas
+  //   dispatch(actionSetRecentQueries(searchParam));
+ 
+  // }
+
+  // const onChangeSearch = (e) => {
+  //   const searchParam = e.target.value;
+  //   setSearchValue(searchParam);
+  //   dispatch(actionFilterSearchAsync(searchParam));
+  //    // Actualizar el estado de las últimas consultas
+  //    dispatch(actionSetRecentQueries(searchParam));
+  // };
+
+  // const resetForm = () => {
+  //   reset();
+  //  dispatch(actionFilterSearchAsync('')); 
+  // }
   return (
     <main>
     <form>
